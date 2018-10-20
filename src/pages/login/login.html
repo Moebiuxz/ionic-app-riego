@@ -7,19 +7,19 @@
 </ion-header>
 
 
-<ion-content text-center="" margin-top="150px" padding>
+<ion-content text-center="" margin-top="150px" padding="15px">
   <img src="https://png.pngtree.com/svg/20161229/_username_login_1172579.png" width="30%"/>
   <ion-list>
 
     <ion-item>
       <ion-label floating>Email</ion-label>
-      <ion-input type="text"></ion-input>
+      <ion-input type="email" [(ngModel)]="email" required=""></ion-input>
     </ion-item>
 
     <ion-item>
       <ion-label floating>Password</ion-label>
-      <ion-input type="password"></ion-input>
+      <ion-input type="password" [(ngModel)]="password" required=""></ion-input>
     </ion-item>
   </ion-list>
-  <button ion-button block>Ingresar</button>
+  <button ion-button block (click)="login()" [disabled]="email.length <= 1 || password.length <= 1">Ingresar</button>
 </ion-content>
