@@ -1,0 +1,37 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Registrar Usuario</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+  <ion-list>
+
+    <ion-item>
+      <ion-label floating>Nombre</ion-label>
+      <ion-input type="text" [(ngModel)]="user.name"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label floating>Apellido</ion-label>
+      <ion-input type="text" [(ngModel)]="user.lastname"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label floating>Email</ion-label>
+      <ion-input type="text" [(ngModel)]="user.email"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>Tipo de Usuario</ion-label>
+      <ion-select [(ngModel)]="user.type">
+        <ion-option value="NORMAL">Normal</ion-option>
+        <ion-option value="ADMINISTRADOR">Administrador</ion-option>
+      </ion-select>
+    </ion-item>
+  </ion-list>
+  <button ion-button block (click)="register()" [disabled]="user.email.length <= 1">Registrar</button>
+</ion-content>

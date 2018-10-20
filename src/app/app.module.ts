@@ -14,6 +14,10 @@ import { AngularFireAuthModule } from '@angular/fire/auth';
 
 // servicios
 import { AuthProvider } from '../providers/auth/auth';
+import { FirebaseDbProvider } from '../providers/firebase-db/firebase-db';
+import {UserPage} from "../pages/user/user";
+import {TabsPage} from "../pages/tabs/tabs";
+import {RegisterPage} from "../pages/register/register";
 
 
 // firebase config
@@ -29,7 +33,10 @@ export const firebaseConfig = {
 @NgModule({
   declarations: [
     MyApp,
-    LoginPage
+    LoginPage,
+    TabsPage,
+    UserPage,
+    RegisterPage
   ],
   imports: [
     BrowserModule,
@@ -41,14 +48,18 @@ export const firebaseConfig = {
   bootstrap: [IonicApp],
   entryComponents: [
     MyApp,
-    LoginPage
+    LoginPage,
+    TabsPage,
+    UserPage,
+    RegisterPage
   ],
   providers: [
     StatusBar,
     SplashScreen,
     AngularFireDatabase,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
-    AuthProvider
+    AuthProvider,
+    FirebaseDbProvider
   ]
 })
 export class AppModule {}

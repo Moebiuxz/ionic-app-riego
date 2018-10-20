@@ -1,19 +1,21 @@
 import { Component } from '@angular/core';
-import { Platform, MenuController } from 'ionic-angular';
+import { Platform, MenuController, Nav, NavController } from 'ionic-angular';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import {LoginPage} from "../pages/login/login";
 import {TabsPage} from "../pages/tabs/tabs";
-
+import {ViewChild} from '@angular/core';
 // servicios
 import { AuthProvider } from '../providers/auth/auth';
+import {UserPage} from "../pages/user/user";
 
 @Component({
   templateUrl: 'app.html'
 })
 export class MyApp {
+  @ViewChild(Nav) navCtrl: Nav;
+
   rootPage:any = '';
-  isLogged: boolean;
 
   constructor(platform: Platform,
               statusBar: StatusBar,
@@ -25,12 +27,10 @@ export class MyApp {
       // Here you can do any higher level native things you might need.
       this.auth.Session.subscribe(session=>{
         if(session){
-          this.rootPage = 'TabsPage';
-          this.isLogged = true;
+          this.rootPage = TabsPage;
         }
         else{
           this.rootPage = LoginPage;
-          this.isLogged = false;
         }
 
       });
@@ -41,6 +41,11 @@ export class MyApp {
 
   logout(){
     this.auth.logout();
+    this.menuCtrl.close();
+  }
+
+  openPage() {
+    this.navCtrl.push(UserPage);
     this.menuCtrl.close();
   }
 }

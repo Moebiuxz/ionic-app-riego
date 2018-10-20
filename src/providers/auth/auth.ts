@@ -12,7 +12,7 @@ export class AuthProvider {
   }
 
   // Registro de usuario
-  registerUser(email:string, password:string){
+  registerLoginUser(email:string, password:string){
     return this.afAuth.auth.createUserWithEmailAndPassword( email, password)
       .then((res)=>{
         // El usuario se ha creado correctamente.

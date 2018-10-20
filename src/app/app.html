@@ -6,16 +6,12 @@
     </ion-header>
     <ion-content>
       <ion-list>
-        <button ion-item (click)="openPage(homePage)">
-          Home
-        </button>
-        <button ion-item (click)="openPage(friendsPage)">
-          Friends
-        </button>
-        <button ion-item (click)="openPage(eventsPage)">
-          Events
+        <button ion-item (click)="openPage()">
+          <ion-icon name="people"></ion-icon>
+          Usuarios
         </button>
         <button ion-item (click)="logout()">
+          <ion-icon name="exit"></ion-icon>
           Cerrar sesion
         </button>
       </ion-list>
