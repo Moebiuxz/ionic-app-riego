@@ -1,0 +1,7 @@
+{
+  "name": "app-riego",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "ionic-angular"
+}
