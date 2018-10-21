@@ -15,10 +15,19 @@ import { AngularFireAuthModule } from '@angular/fire/auth';
 // servicios
 import { AuthProvider } from '../providers/auth/auth';
 import { FirebaseDbProvider } from '../providers/firebase-db/firebase-db';
+
+//imports
 import {UserPage} from "../pages/user/user";
 import {TabsPage} from "../pages/tabs/tabs";
 import {RegisterPage} from "../pages/register/register";
+import {UpdatePage} from "../pages/update/update";
 
+// plugins
+import { IonicStorageModule } from '@ionic/storage';
+import { StorageProvider } from '../providers/storage/storage';
+import {HistorialRiegoPage} from "../pages/historial-riego/historial-riego";
+import {DashboardPage} from "../pages/dashboard/dashboard";
+import {HistorialSensorPage} from "../pages/historial-sensor/historial-sensor";
 
 // firebase config
 export const firebaseConfig = {
@@ -36,12 +45,17 @@ export const firebaseConfig = {
     LoginPage,
     TabsPage,
     UserPage,
-    RegisterPage
+    RegisterPage,
+    UpdatePage,
+    HistorialRiegoPage,
+    DashboardPage,
+    HistorialSensorPage
   ],
   imports: [
     BrowserModule,
     IonicModule.forRoot(MyApp),
     AngularFireModule.initializeApp(firebaseConfig),
+    IonicStorageModule.forRoot(),
     AngularFireDatabaseModule,
     AngularFireAuthModule
   ],
@@ -51,7 +65,11 @@ export const firebaseConfig = {
     LoginPage,
     TabsPage,
     UserPage,
-    RegisterPage
+    RegisterPage,
+    UpdatePage,
+    HistorialRiegoPage,
+    DashboardPage,
+    HistorialSensorPage
   ],
   providers: [
     StatusBar,
@@ -59,7 +77,8 @@ export const firebaseConfig = {
     AngularFireDatabase,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     AuthProvider,
-    FirebaseDbProvider
+    FirebaseDbProvider,
+    StorageProvider
   ]
 })
 export class AppModule {}

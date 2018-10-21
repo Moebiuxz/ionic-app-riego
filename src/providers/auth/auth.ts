@@ -1,9 +1,7 @@
-import { Injectable } from '@angular/core';
-
+import {Injectable} from '@angular/core';
 // firebase
-import { AngularFireAuth } from 'angularfire2/auth';
+import {AngularFireAuth} from 'angularfire2/auth';
 import * as firebase from 'firebase/app';
-
 @Injectable()
 export class AuthProvider {
 
@@ -11,13 +9,15 @@ export class AuthProvider {
     console.log('Hello AuthProvider Provider');
   }
 
-  // Registro de usuario
-  registerLoginUser(email:string, password:string){
-    return this.afAuth.auth.createUserWithEmailAndPassword( email, password)
-      .then((res)=>{
-        // El usuario se ha creado correctamente.
-      })
-      .catch(err=>Promise.reject(err))
+  registerLoginUser(email: string){
+    return this.afAuth.auth.createUserWithEmailAndPassword( email, '123456');
+  }
+
+  // obtener informacion de usuario
+  getCurrentUser() {
+    let user = firebase.auth().currentUser;
+    console.log(user);
+    return user;
   }
 
   // Login de usuario
@@ -37,5 +37,13 @@ export class AuthProvider {
     this.afAuth.auth.signOut().then(()=>{
       // hemos salido
     })
+  }
+
+  sendPasswordReset(email: string) {
+    this.afAuth.auth.sendPasswordResetEmail(email).then(function() {
+      console.log('Se envio el password')
+    }).catch(function(error) {
+      console.log('Ocurrio un error.')
+    });
   }
 }

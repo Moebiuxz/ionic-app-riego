@@ -1,7 +1,7 @@
 <ion-header>
 
   <ion-navbar>
-    <ion-title>Registrar Usuario</ion-title>
+    <ion-title>Actualizar Usuario</ion-title>
   </ion-navbar>
 
 </ion-header>
@@ -20,18 +20,18 @@
       <ion-input type="text" [(ngModel)]="user.lastname"></ion-input>
     </ion-item>
 
-    <ion-item>
+    <ion-item >
       <ion-label floating>Email</ion-label>
-      <ion-input type="text" [(ngModel)]="user.email"></ion-input>
+      <ion-input disabled="" type="text" [(ngModel)]="user.email"></ion-input>
     </ion-item>
 
     <ion-item>
       <ion-label>Tipo de Usuario</ion-label>
       <ion-select [(ngModel)]="user.type">
         <ion-option value="NORMAL">Normal</ion-option>
-        <ion-option *ngIf="isMaster" value="ADMINISTRADOR">Administrador</ion-option>
+        <ion-option value="ADMINISTRADOR">Administrador</ion-option>
       </ion-select>
     </ion-item>
   </ion-list>
-  <button ion-button block (click)="register()" [disabled]="user.email.length <= 1">Registrar</button>
+  <button ion-button block (click)="updateUser()">Actualizar</button>
 </ion-content>

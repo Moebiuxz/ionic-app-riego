@@ -1,12 +1,12 @@
 <ion-menu [content]="content">
     <ion-header>
       <ion-toolbar>
-        <ion-title>Menu</ion-title>
+        <ion-title>Menú</ion-title>
       </ion-toolbar>
     </ion-header>
     <ion-content>
       <ion-list>
-        <button ion-item (click)="openPage()">
+        <button *ngIf="!isNormal" ion-item (click)="openPage()">
           <ion-icon name="people"></ion-icon>
           Usuarios
         </button>

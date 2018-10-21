@@ -11,10 +11,22 @@ export class FirebaseDbProvider {
   }
 
   createUser(user){
-    return this.afDB.database.ref('users/'+Date.now()).set(user);
+    return this.afDB.database.ref('users/'+user.idx).set(user);
   }
 
   getUsers(){
     return this.afDB.list('users/').valueChanges();
+  }
+
+  deleteUser(idx: string) {
+    this.afDB.list('users/'+idx).remove();
+  }
+
+  updateUser(user) {
+    this.afDB.list('users/').set(user.idx, {user});
+  }
+
+  getUser(idx: string) {
+    return this.afDB.list('users/'+idx).valueChanges();
   }
 }

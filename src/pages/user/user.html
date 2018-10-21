@@ -15,14 +15,27 @@
 
 <ion-content>
   <ion-list>
-    <ion-item *ngFor="let user of users">
-      <ion-avatar item-start>
-        <img src="http://uploads.webflow.com/56a09b532f2ef2655bb8cec2/56a0bb98e9a99a4669bf7f07_user_icon.png">
-      </ion-avatar>
-      <h2>{{user.name + ' ' + user.lastname}}</h2>
-      <h3>{{user.email}}</h3>
-      <p>{{user.createdAt}}</p>
-    </ion-item>
+    <ion-item-sliding *ngFor="let user of users; let i = index">
+      <ion-item>
+        <ion-avatar item-start>
+          <img src="http://uploads.webflow.com/56a09b532f2ef2655bb8cec2/56a0bb98e9a99a4669bf7f07_user_icon.png">
+        </ion-avatar>
+        <h2>{{user.name + ' ' + user.lastname}}</h2>
+        <h3>{{user.email}}</h3>
+        <p>{{user.createdAt}}</p>
+      </ion-item>
+
+      <ion-item-options side="right" *ngIf="isMaster">
+        <button ion-button color="primary" (click)="editUser(user)">
+          <ion-icon name="create"></ion-icon>
+          Editar
+        </button>
+        <button ion-button color="danger" (click)="deleteUser(user.idx)">
+          <ion-icon name="trash"></ion-icon>
+          Borrar
+        </button>
+      </ion-item-options>
+    </ion-item-sliding>
   </ion-list>
 
 
