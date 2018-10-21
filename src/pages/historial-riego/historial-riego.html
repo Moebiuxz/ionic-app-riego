@@ -7,12 +7,21 @@
 <ion-header>
 
   <ion-navbar>
-    <ion-title>historialRiego</ion-title>
+    <ion-title text-center="">Historial de Riego</ion-title>
   </ion-navbar>
 
 </ion-header>
 
 
 <ion-content padding>
-
+  <ion-card *ngFor="let riego of riegos.slice().reverse()">
+    <ion-card-header>
+      <b>Se ha iniciado el riego</b>
+    </ion-card-header>
+    <ion-card-content>
+      <h3><b>Inicio:</b> {{riego.start}}</h3>
+      <h3><b>Temperatura: </b>{{riego.temp}} ℃</h3>
+      <p><b>Finalizó:</b> {{riego.end}}</p>
+    </ion-card-content>
+  </ion-card>
 </ion-content>

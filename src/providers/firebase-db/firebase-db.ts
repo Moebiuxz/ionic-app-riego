@@ -18,6 +18,16 @@ export class FirebaseDbProvider {
     return this.afDB.list('users/').valueChanges();
   }
 
+  /*Parametros actuales*/
+  getActualParameters(){
+    return this.afDB.list('actual/').valueChanges();
+  }
+
+  /*Historial de riegos*/
+  getHistorialRiego(){
+    return this.afDB.list('log_riegos/').valueChanges();
+  }
+
   deleteUser(idx: string) {
     this.afDB.list('users/'+idx).remove();
   }

@@ -1,18 +1,33 @@
-<!--
-  Generated template for the DashboardPage page.
-
-  See http://ionicframework.com/docs/components/#navigation for more info on
-  Ionic pages and navigation.
--->
 <ion-header>
 
   <ion-navbar>
-    <ion-title>dashboard</ion-title>
+    <ion-title text-center="">Dashboard</ion-title>
   </ion-navbar>
 
 </ion-header>
 
 
 <ion-content padding>
+  <ion-card>
+    <ion-card-header>
+      Parámetros
+    </ion-card-header>
+    <ion-list>
+      <button ion-item>
+        <ion-icon name="cart" item-start></ion-icon>
+        Temperatura: {{parameters[2]}}
+      </button>
 
+      <button ion-item>
+        <ion-icon name="medical" item-start></ion-icon>
+        Humedad del suelo: {{parameters[1]}}
+      </button>
+
+      <button ion-item>
+        <ion-icon name="cafe" item-start></ion-icon>
+        Última lectura: {{parameters[0]}}
+      </button>
+
+    </ion-list>
+  </ion-card>
 </ion-content>
