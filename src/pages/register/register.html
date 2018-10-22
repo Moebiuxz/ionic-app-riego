@@ -33,5 +33,6 @@
       </ion-select>
     </ion-item>
   </ion-list>
-  <button ion-button block (click)="register()" [disabled]="user.email.length <= 1">Registrar</button>
+  <button ion-button block (click)="register()" [disabled]="user.email.length <= 1
+  || user.type.length <= 1 || user.name.length <= 1 || user.lastname.length <= 1">Registrar</button>
 </ion-content>

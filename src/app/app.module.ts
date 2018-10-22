@@ -28,6 +28,7 @@ import { StorageProvider } from '../providers/storage/storage';
 import {HistorialRiegoPage} from "../pages/historial-riego/historial-riego";
 import {DashboardPage} from "../pages/dashboard/dashboard";
 import {HistorialSensorPage} from "../pages/historial-sensor/historial-sensor";
+import { ChartsModule } from 'ng2-charts';
 
 // firebase config
 export const firebaseConfig = {
@@ -57,7 +58,8 @@ export const firebaseConfig = {
     AngularFireModule.initializeApp(firebaseConfig),
     IonicStorageModule.forRoot(),
     AngularFireDatabaseModule,
-    AngularFireAuthModule
+    AngularFireAuthModule,
+    ChartsModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [

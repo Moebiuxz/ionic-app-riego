@@ -23,9 +23,19 @@ export class FirebaseDbProvider {
     return this.afDB.list('actual/').valueChanges();
   }
 
-  /*Historial de riegos*/
+  /*Log de riegos*/
   getHistorialRiego(){
     return this.afDB.list('log_riegos/').valueChanges();
+  }
+
+  /*Log de sensores*/
+  getHistorialSensor(){
+    return this.afDB.list('log_sensors/').valueChanges();
+  }
+
+  /*Log charts*/
+  getValues(){
+    return this.afDB.list('chart_values/').valueChanges();
   }
 
   deleteUser(idx: string) {

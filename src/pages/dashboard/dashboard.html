@@ -10,24 +10,46 @@
 <ion-content padding>
   <ion-card>
     <ion-card-header>
-      Parámetros
+      <b>Parámetros</b>
     </ion-card-header>
     <ion-list>
       <button ion-item>
-        <ion-icon name="cart" item-start></ion-icon>
-        Temperatura: {{parameters[2]}}
+        <ion-icon color="primary" name="partly-sunny" item-start></ion-icon>
+        Temperatura: <b>{{parameters[2]}} ℃</b>
       </button>
 
       <button ion-item>
-        <ion-icon name="medical" item-start></ion-icon>
-        Humedad del suelo: {{parameters[1]}}
+        <ion-icon color="gris" name="leaf" item-start></ion-icon>
+        Humedad: <b>{{parameters[1]}}</b>
       </button>
 
-      <button ion-item>
-        <ion-icon name="cafe" item-start></ion-icon>
-        Última lectura: {{parameters[0]}}
-      </button>
+      <div text-center="" color="secondary" ion-item *ngIf="parameters[1] == 'Alta'">
+        ESTADO DE RIEGO INACTIVO
+      </div>
+
+      <div text-center="" color="danger" ion-item *ngIf="parameters[1] == 'Baja'">
+        ESTADO DE RIEGO ACTIVO
+      </div>
+
+        <p margin-left="20px" margin-top="15px" padding-bottom="15px">Última lectura: {{parameters[3]+ " " + parameters[0]}}</p>
+
 
     </ion-list>
+  </ion-card>
+  <ion-card *ngIf="data.length >= 1 || lineChartLabels.length > 0">
+    <ion-card-header><b>Temperatura</b></ion-card-header>
+    <ion-card-content>
+
+          <canvas baseChart height="180"
+                  [datasets]="lineChartData"
+                  [labels]="lineChartLabels"
+                  [options]="lineChartOptions"
+                  [colors]="lineChartColors"
+                  [legend]="lineChartLegend"
+                  [chartType]="lineChartType"
+                  (chartHover)="chartHovered($event)"
+                  (chartClick)="chartClicked($event)"></canvas>
+
+    </ion-card-content>
   </ion-card>
 </ion-content>

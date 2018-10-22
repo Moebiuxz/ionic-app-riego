@@ -7,11 +7,11 @@
     <ion-content>
       <ion-list>
         <button *ngIf="!isNormal" ion-item (click)="openPage()">
-          <ion-icon name="people"></ion-icon>
+          <ion-icon color="primary" name="people"></ion-icon>
           Usuarios
         </button>
         <button ion-item (click)="logout()">
-          <ion-icon name="exit"></ion-icon>
+          <ion-icon color="danger" name="exit"></ion-icon>
           Cerrar sesion
         </button>
       </ion-list>
